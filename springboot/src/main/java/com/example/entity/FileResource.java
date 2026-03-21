@@ -8,15 +8,13 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@TableName("doc") // 映射到数据库的 doc 表
+@TableName("file_resource") // 映射到数据库的file_resource表
 public class FileResource {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
     private String title; // 文件标题
-    private String time; // 发文时间
-    private String authority; // 发文作者
-    private String number; // 发文字号
-    private String pdf; // 文件路径
-    private LocalDateTime createTime; // 创建时间
+    private String filePath; // 文件路径
+    private String fileType; // 文件类型
+    private LocalDateTime uploadTime; // 上传时间
 }
