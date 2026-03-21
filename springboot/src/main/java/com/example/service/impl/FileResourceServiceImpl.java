@@ -26,7 +26,8 @@ public class FileResourceServiceImpl implements FileResourceService {
     }
 
     @Override
-    public void save(FileResource fileResource) {
+    // 更新需要知道：更新哪些字段 + 更新哪条记录
+    public void save(FileResource fileResource) { // updateById 通过对象的主键字段自动知道要更新哪条记录
         fileResourceMapper.insert(fileResource);
     }
 
@@ -36,7 +37,7 @@ public class FileResourceServiceImpl implements FileResourceService {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Integer id) { // 删除只需要知道：删除哪条记录
         fileResourceMapper.deleteById(id);
     }
 
