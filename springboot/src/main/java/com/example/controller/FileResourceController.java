@@ -32,8 +32,6 @@ public class FileResourceController {
     @PostMapping // 上传文件（只有管理员能调用）
     public  Result<Void> updateFile(@RequestParam("file") MultipartFile file,
                                     @RequestParam ("title") String title) {
-        // 这里需要添加权限验证（在实际项目中）
-        // 检查当前用户是否为管理员
 
         FileResource fileResource = new FileResource();
         fileResource.setTitle(title);
@@ -50,7 +48,7 @@ public class FileResourceController {
         return Result.success(null);
     }
 
-    @DeleteMapping("/{id}") // 删除文件（只有管理员能调用）
+    @DeleteMapping("/{id}") // 删除文件
     public Result<Void> deleteFile(@PathVariable Integer id) {
         fileResourceService.delete(id);
         return Result.success(null);
