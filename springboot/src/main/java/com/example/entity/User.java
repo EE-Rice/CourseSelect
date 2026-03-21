@@ -13,7 +13,9 @@ public class User {
     private Integer id;
 
     @TableField("student_no")  // 映射数据库字段 student_no
-    private String username;    // 业务逻辑中使用 username    private String password;
+    private String username;    // 业务逻辑中使用 username
+
+    private String password;
     private String name;
     private String phone;
     private String email;
