@@ -14,5 +14,5 @@ public class Admin {
     private String username; // 用户名
     private String password; // 密码
     private String name; // 姓名
-    private String role; // 角色:ADMIN
+    private String role = "admin";; // 角色:ADMIN
 }
