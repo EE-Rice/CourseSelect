@@ -21,8 +21,7 @@ public class User {
     private String email;
     private String sex;
     private String birth;
-    private String avater; // 头像路径
+    private String avatar; // 头像路径
     @TableField("major_id")
     private Integer majorId;
-    private String role;
 }

@@ -52,7 +52,6 @@ public class UserServiceImpl implements UserService {
 
         // 密码加密
         user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
-        user.setRole("student"); // 默认为学生角色
         userMapper.insert(user); // MyBatis-Plus 提供的方法
     }
 
