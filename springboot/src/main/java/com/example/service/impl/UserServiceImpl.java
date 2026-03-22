@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User login(String username, String password) {
         // 密码加密后比较
-        String encryptPassword = DigestUtils.md5DigestAsHex(password.getBytes());
+        // String encryptPassword = DigestUtils.md5DigestAsHex(password.getBytes());
 
         /**
          * QueryWrapper 是MyBatis-Plus 提供的查询条件构造器
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
          * 不是数据库表，只是一个条件容器
          */
         QueryWrapper<User> wrapper = new QueryWrapper<>(); // 创建查询条件包装器
-        wrapper.eq("student_no", username).eq("password", encryptPassword);
+        wrapper.eq("student_no", username).eq("password", password);
         // 等价于 SQL: WHERE username = ? AND password = ?
 
         User user = userMapper.selectOne(wrapper); // Spring 注入的 Mapper 对象，执行查询，返回一个 User 对象
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
         }
 
         // 密码加密
-        user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
+        // user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
         userMapper.insert(user); // MyBatis-Plus 提供的方法
     }
 
