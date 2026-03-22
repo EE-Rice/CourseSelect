@@ -67,7 +67,6 @@ public class UserServiceImpl implements UserService {
     }
 
     // 添加这个方法
-
     @Override
     public List<User> findAll() {
         return userMapper.selectList(null);

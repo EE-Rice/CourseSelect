@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -80,5 +81,12 @@ public class UserController {
         // PUT常用于更新完整资源
         userService.updateProfile(user);
         return Result.success(null);
+    }
+
+    // 添加这个测试方法
+    @GetMapping
+    public Result<List<User>> getAllUsers() {
+        List<User> users = userService.findAll();
+        return Result.success(users);
     }
 }

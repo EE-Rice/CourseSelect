@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 public interface UserMapper extends BaseMapper<User> { // BaseMapper：MyBatis-Plus 提供的通用 Mapper
 
     // 根据用户名查询用户
-    @Select("SELECT * FROM student WHERE username = #{username}")
+    @Select("SELECT * FROM student WHERE student_no = #{username}")
     User findByUsername(@Param("username") String username);
 
     // 也可以继承 BaseMapper，获得基本的 CRUD 操作
