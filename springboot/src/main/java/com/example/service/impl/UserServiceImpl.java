@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
          * 不是数据库表，只是一个条件容器
          */
         QueryWrapper<User> wrapper = new QueryWrapper<>(); // 创建查询条件包装器
-        wrapper.eq("username", username).eq("password", encryptPassword);
+        wrapper.eq("student_no", username).eq("password", encryptPassword);
         // 等价于 SQL: WHERE username = ? AND password = ?
 
         User user = userMapper.selectOne(wrapper); // Spring 注入的 Mapper 对象，执行查询，返回一个 User 对象
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
     public void register(User user) {
         // 检查用户名是否已经存在，用户名是学号！
         QueryWrapper<User> wrapper = new QueryWrapper<>();
-        wrapper.eq("username", user.getUsername());
+        wrapper.eq("student_no", user.getUsername());
         if (userMapper.selectCount(wrapper) > 0) { // selectCount()是MyBatis-Plus 提供的方法
             throw new RuntimeException("用户名已存在");
         }
