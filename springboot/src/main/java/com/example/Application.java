@@ -5,9 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.example.mapper")
+@MapperScan("com.example.mapper")  // 扫描 mapper 接口
 public class Application {
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
+
 }
