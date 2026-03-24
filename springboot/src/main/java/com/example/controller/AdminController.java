@@ -20,6 +20,10 @@ public class AdminController {
     @PostMapping("/login")
     public Result <Map<String,Object>> login(@RequestBody Admin admin){
         try {
+            if (admin == null) {
+                return Result.error("请求体不能为空");
+            }
+
             Admin loginAdmin = adminService.login(admin.getUsername(), admin.getPassword());
 
             Map<String,Object> data = new HashMap<>();
