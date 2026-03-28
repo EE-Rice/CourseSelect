@@ -2,7 +2,6 @@
 # Spring Boot 服务器配置
 # ============================================
 server:
-  # 应用启动端口，访问地址：http://localhost:8080
   port: 8080
   servlet:
     encoding:
@@ -15,65 +14,38 @@ server:
 # ============================================
 spring:
   datasource:
-    # JDBC连接URL
-    # 192.168.139.3:3306 = MySQL服务器地址和端口
-    # course_system = 数据库名
-    # useUnicode=true&characterEncoding=utf8 = 支持中文
-    # useSSL=false = 禁用SSL（本地开发用）
-    # serverTimezone=Asia/Shanghai = 指定时区
     url: jdbc:mysql://192.168.139.3:3306/course_system?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-    # ============================================
-    # 文件上传配置（Spring Boot内置）
-    # ============================================  servlet:
+  # ============================================
+  # 文件上传配置（Spring Boot内置）
+  # ============================================
+  servlet:
     multipart:
-      enabled: true # 启用文件上传功能（默认true）
-      max-file-size: 10MB # 单个文件最大10MB
-      max-request-size: 100MB # 整个请求最大100MB（多文件上传时有用）
-
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 100MB
 
 # ============================================
 # MyBatis-Plus 配置
 # ============================================
 mybatis-plus:
   configuration:
-    # 开启驼峰命名自动转换
-    # 数据库字段：create_time → Java属性：createTime
     map-underscore-to-camel-case: true
-
-    # 打印SQL语句到控制台，方便调试
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
   global-config:
     db-config:
-      table-prefix: ""  # 表前缀，空表示表名和实体类名一致
+      table-prefix: ""
 
-  # ============================================
-  # 自定义文件上传配置（我们自己定义的）
-  # 通过 @Value("${upload.path}") 在代码中读取
-  # ============================================
-  upload:
-  # 文件存储根目录
-  # ./uploads = 相对路径，在项目根目录下创建uploads文件夹
-  # 生产环境建议改为绝对路径：/home/user/course-system/uploads
+# ============================================
+# 自定义文件上传配置（我们自己定义的）
+# 通过 @Value("${upload.path}") 在代码中读取
+# ============================================
+upload:
   path: ./uploads
-
-  # 头像存储路径（基于根目录）
-  # 最终路径：./uploads/avatar
   avatar-path: ./uploads/avatar
-
-  # 普通文件存储路径（课程资料等）
-  # 最终路径：./uploads/files
   file-path: ./uploads/files
-
-  # 允许上传的文件类型（MIME类型）
-  # image/* = 图片，application/pdf = PDF文档
-  # application/msword = .doc，application/vnd.openxmlformats... = .docx
   allowed-types: image/jpeg,image/png,image/gif,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
-
-  # 最大文件大小（字节）
-  # 10485760 = 10 * 1024 * 1024 = 10MB
   max-size: 10485760
