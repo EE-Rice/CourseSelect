@@ -5,9 +5,12 @@ server:
   port: 8080
   servlet:
     encoding:
-      charset: UTF-8
+      charset: UTF-8,
       enabled: true
       force: true
+  # 新增：Tomcat URL 编码
+  tomcat:
+    uri-encoding: UTF-8
 
 # ============================================
 # 数据库连接配置
