@@ -265,7 +265,7 @@ public class FileResourceController {
      */
     private String encodeFilename(String filename) {
         try {
-            return URLEncoder.encode(filename, StandardCharsets.UTF_8).replaceAll("\\+", "%20");
+            return URLEncoder.encode(filename, StandardCharsets.UTF_8.toString()).replaceAll("\\+", "%20"); // StandardCharsets.UTF_8.toString() 转成 "UTF-8"
         } catch (Exception e) {
             // 编码失败，返回原文件名（一般不会发生）
             return filename;
