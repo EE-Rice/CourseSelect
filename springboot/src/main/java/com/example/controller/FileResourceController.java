@@ -76,7 +76,7 @@ public class FileResourceController {
      * ============================================
      */
     @PostMapping // 上传文件（只有管理员能调用）
-    public  Result<Void> updateFile(
+    public  Result<FileResource> updateFile(
             // @RequestParam 从请求参数中获取值
             @RequestParam("file") MultipartFile file,
 
