@@ -19,7 +19,8 @@
 cd /你的项目路径/CourseSelect
 
 # 拉取最新代码（防止冲突）
-git pull origin master
+# git pull origin master
+git pull
 ```
 
 ### 2. 功能开发
@@ -68,13 +69,15 @@ git push -u origin feature/login-optimization
 git checkout master
 
 # 拉取最新
-git pull origin master
+# git pull origin master
+git pull
 
 # 合并功能分支
 git merge feature/login-optimization
 
 # 推送到远程
-git push origin master
+# git push origin master
+git push
 
 # 删除本地分支
 git branch -d feature/login-optimization
