@@ -26,6 +26,8 @@
 
 <script setup>
 // 功能：引入路由用于页面跳转
+// 关键：必须导入 reactive，否则报错 "Can't find variable: reactive"
+import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
