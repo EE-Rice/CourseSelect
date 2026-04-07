@@ -1,16 +1,40 @@
 <!DOCTYPE html>
+<!--
+  这是整个应用唯一的真实HTML文件
+  Vue是"单页应用"（SPA），所有页面切换都是在这个HTML里换组件，不是真的跳转新页面
+-->
+
 <html lang="zh-CN">
 <head>
+    <!-- 字符编码，防止中文乱码 -->
     <meta charset="UTF-8" />
+
+    <!-- 网页图标 -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- 视口设置，移动端适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 网页标题，浏览器标签显示 -->
     <title>学生选课系统</title>
 </head>
+
 <body>
 <!-- 必须有这个 div，id 为 app -->
+<!--
+      ============================================
+      关键：id="app" 的 div
+      ============================================
+      Vue 应用会挂载到这里，把所有组件渲染到这个 div 内部
+      main.js 里的 app.mount('#app') 就是找这个元素
+    -->
 <div id="app"></div>
 
 <!-- Vite 自动注入脚本 -->
+<!--
+      加载 main.js，type="module" 表示使用 ES6 模块化
+      Vite 会处理这个脚本，把 Vue 代码编译后执行
+-->
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>
